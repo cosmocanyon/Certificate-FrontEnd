@@ -3,6 +3,8 @@ import { useNavigate } from "react-router-dom";
 import axios from "axios";
 import LogoutIcon from "@mui/icons-material/Logout";
 
+const API_BASE_URL = process.env.REACT_APP_API_BASE_URL;
+
 const LogoutButton = () => {
   const navigate = useNavigate();
 
@@ -12,7 +14,7 @@ const LogoutButton = () => {
     if (token) {
       try {
         await axios.post(
-          "http://localhost:8080/auth/logout",
+          "${API_BASE_URL}/auth/logout",
           {},
           {
             headers: {

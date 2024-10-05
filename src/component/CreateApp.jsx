@@ -10,6 +10,8 @@ import {
 } from "@mui/material";
 import axios from "axios";
 
+const API_BASE_URL = process.env.REACT_APP_API_BASE_URL;
+
 const CreateApp = ({ open, onClose, addApp }) => {
   const [appName, setAppName] = useState("");
 
@@ -17,7 +19,7 @@ const CreateApp = ({ open, onClose, addApp }) => {
     e.preventDefault();
     try {
       const response = await axios.post(
-        "http://localhost:8081/applications/create",
+        "${API_BASE_URL}/applications/create",
         { name: appName }
       );
       addApp(response.data);

@@ -14,6 +14,8 @@ import {
 } from "@mui/material";
 import axios from "axios";
 
+const API_BASE_URL = process.env.REACT_APP_API_BASE_URL;
+
 const DeleteApp = ({ open, onClose, apps, removeApp }) => {
   const [selectedApp, setSelectedApp] = useState(null);
   const [confirmDelete, setConfirmDelete] = useState(false);
@@ -36,7 +38,7 @@ const DeleteApp = ({ open, onClose, apps, removeApp }) => {
 
     try {
       const response = await axios.delete(
-        `http://localhost:8081/applications/delete/${selectedApp.name}`
+        `${API_BASE_URL}/applications/delete/${selectedApp.name}`
       );
 
       if (response.status === 200) {

@@ -34,6 +34,8 @@ import BackButton from "./BackButton";
 import backgroundImage from '../images/pageGeneral.png';
 import RefreshIcon from '@mui/icons-material/Refresh'; 
 
+const API_BASE_URL = process.env.REACT_APP_API_BASE_URL;
+
 const CertificatePageUser = () => {
   const [certificates, setCertificates] = useState([]);
   const [applications, setApplications] = useState({});
@@ -50,12 +52,12 @@ const CertificatePageUser = () => {
     const fetchCertificatesAndApplications = async () => {
       try {
         const certificatesResponse = await axios.get(
-          "http://localhost:8081/certificates/all"
+          "${API_BASE_URL}/certificates/all"
         );
         setCertificates(certificatesResponse.data);
 
         const applicationsResponse = await axios.get(
-          "http://localhost:8081/applications/findAll-name"
+          "${API_BASE_URL}/applications/findAll-name"
         );
         const appsMap = {};
         applicationsResponse.data.forEach((app) => {
@@ -78,19 +80,19 @@ const CertificatePageUser = () => {
   };
 
   const handleDownload = (certId) => {
-    const url = `http://localhost:8081/certificates/${certId}/download`;
+    const url = `${API_BASE_URL}/certificates/${certId}/download`;
     window.open(url, "_blank");
   };
 
   const handleDownloadPrivateKey = (certId) => {
-    const url = `http://localhost:8081/certificates/${certId}/private-key/download`;
+    const url = `${API_BASE_URL}/certificates/${certId}/private-key/download`;
     window.open(url, "_blank");
   };
 
   const handleViewCertificate = async (certId) => {
     try {
       const response = await axios.get(
-        `http://localhost:8081/certificates/${certId}/download`
+        `${API_BASE_URL}/certificates/${certId}/download`
       );
       setCertificateContent(response.data);
       setOpenDialog(true);

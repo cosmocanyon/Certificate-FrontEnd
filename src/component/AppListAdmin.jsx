@@ -10,6 +10,8 @@ import logo from "../images/logo.png";
 import axios from "axios";
 import { useEffect, useState } from "react";
 
+const API_BASE_URL = process.env.REACT_APP_API_BASE_URL;
+
 const AppListAdmin = () => {
   const [apps, setApps] = useState([]);
   const navigate = useNavigate();
@@ -18,7 +20,7 @@ const AppListAdmin = () => {
   const fetchApps = async () => {
     try {
       const response = await axios.get(
-        "http://localhost:8081/applications/findAll-name"
+        "${API_BASE_URL}/applications/findAll-name"
       );
       if (response.status !== 200) {
         throw new Error(`HTTP error! status: ${response.status}`);

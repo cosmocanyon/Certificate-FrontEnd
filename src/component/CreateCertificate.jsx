@@ -16,6 +16,8 @@ import {
 } from "@mui/material";
 import axios from "axios";
 
+const API_BASE_URL = process.env.REACT_APP_API_BASE_URL;
+
 const CreateCertificate = ({ open, onClose, onCertificateGenerated }) => {
   const [cn, setCn] = useState("");
   const [organization, setOrganization] = useState("");
@@ -28,7 +30,7 @@ const CreateCertificate = ({ open, onClose, onCertificateGenerated }) => {
 
   const fetchApplications = async () => {
     try {
-      const response = await axios.get("http://localhost:8081/applications/findAll-name");
+      const response = await axios.get("${API_BASE_URL}/applications/findAll-name");
       setApplications(response.data);
     } catch (error) {
       console.error("Error fetching applications:", error);
@@ -55,7 +57,7 @@ const CreateCertificate = ({ open, onClose, onCertificateGenerated }) => {
 
     try {
       const response = await axios.post(
-        "http://localhost:8081/certificates/generate-save-certificate",
+        "${API_BASE_URL}/certificates/generate-save-certificate",
         newCertificate
       );
       setResponseMessage("Certificate generated successfully");

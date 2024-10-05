@@ -35,6 +35,8 @@ import CheckCircleIcon from "@mui/icons-material/CheckCircle";
 import CancelIcon from "@mui/icons-material/Cancel";
 import logo from "../images/certy-timeter.png"
 
+const API_BASE_URL = process.env.REACT_APP_API_BASE_URL;
+
 const CertificatesListUser = () => {
   const { id } = useParams();
   const [certificates, setCertificates] = useState([]);
@@ -48,7 +50,7 @@ const CertificatesListUser = () => {
   const fetchCertificates = async (id) => {
     try {
       const response = await axios.get(
-        `http://localhost:8081/applications/id/${id}/certificates`
+        `${API_BASE_URL}/applications/id/${id}/certificates`
       );
       if (response.status !== 200) {
         throw new Error(`HTTP error! status: ${response.status}`);
@@ -90,12 +92,12 @@ const CertificatesListUser = () => {
   }, [id]);
 
   const handleDownloadCertificate = (certId) => {
-    const url = `http://localhost:8081/certificates/${certId}/download`;
+    const url = `${API_BASE_URL}/certificates/${certId}/download`;
     window.open(url, "_blank");
   };
 
   const handleDownloadPrivateKey = (certId) => {
-    const url = `http://localhost:8081/certificates/${certId}/private-key/download`;
+    const url = `${API_BASE_URL}/certificates/${certId}/private-key/download`;
     window.open(url, "_blank");
   };
 
@@ -110,7 +112,7 @@ const CertificatesListUser = () => {
 
   const handleRenewCertificate = async () => {
     try {
-      const response = await axios.post(`http://localhost:8081/certificates/${selectedCertificate.id}/renew`, { days: daysToAdd });
+      const response = await axios.post(`${API_BASE_URL}/certificates/${selectedCertificate.id}/renew`, { days: daysToAdd });
       setSnackbarMessage(response.data.message || "Certificate renewed successfully!");
       setSnackbarOpen(true);
     } catch (error) {

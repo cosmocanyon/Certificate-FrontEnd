@@ -22,7 +22,7 @@ const UserDetailsMenu = () => {
       try {
         const token = localStorage.getItem("token");
         const response = await axios.get(
-          "http://localhost:8080/user/user-data",
+          "${API_BASE_URL}/user/user-data",
           {
             headers: {
               Authorization: `Bearer ${token}`,

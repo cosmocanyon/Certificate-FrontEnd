@@ -19,6 +19,8 @@ import backgroundImage from '../images/pageGeneral.png';
 import AppListAdmin from "./AppListAdmin";
 import logo from "../images/certy-timeter.png"
 
+const API_BASE_URL = process.env.REACT_APP_API_BASE_URL;
+
 const AppPage = () => {
   const [openCreateDialog, setOpenCreateDialog] = useState(false);
   const [openDeleteDialog, setOpenDeleteDialog] = useState(false);
@@ -31,7 +33,7 @@ const AppPage = () => {
   const fetchApps = async () => {
     try {
       const response = await axios.get(
-        "http://localhost:8081/applications/findAll-name"
+        "${API_BASE_URL}/applications/findAll-name"
       );
       if (response.status !== 200) {
         throw new Error(`HTTP error! status: ${response.status}`);
@@ -66,7 +68,7 @@ const AppPage = () => {
   const handleRemoveApp = async (appName) => {
     try {
       await axios.delete(
-        `http://localhost:8081/applications/delete/${appName}`
+        `${API_BASE_URL}/applications/delete/${appName}`
       );
       await fetchApps();
       setSnackbarMessage("Application deleted successfully!");

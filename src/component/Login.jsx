@@ -4,6 +4,8 @@ import { useNavigate } from "react-router-dom";
 import { TextField, Button, Container, Typography, Box } from "@mui/material";
 import backgroundImage from '../images/Login-Certy-Timeter.png';  
 
+const API_BASE_URL = process.env.REACT_APP_API_BASE_URL;
+
 const Login = () => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
@@ -17,7 +19,7 @@ const Login = () => {
       const requestBody = { email, password };
 
       const response = await axios.post(
-        "http://localhost:8080/auth/login-token",
+        "${API_BASE_URL}/auth/login-token",
         requestBody
       );
 

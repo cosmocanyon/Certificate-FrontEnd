@@ -49,7 +49,7 @@ const UsersList = () => {
 
   const fetchUsers = async () => {
     try {
-      const response = await axios.get("http://localhost:8080/user/find-All");
+      const response = await axios.get("${API_BASE_URL}/user/find-All");
       setUsers(response.data);
     } catch (error) {
       setError("Unable to fetch users.");
@@ -69,10 +69,10 @@ const UsersList = () => {
   const handleSaveUser = async (user) => {
     try {
       if (user.id) {
-        await axios.put(`http://localhost:8080/user/edit/${user.id}`, user);
+        await axios.put(`${API_BASE_URL}/user/edit/${user.id}`, user);
         setSnackbarMessage("User updated successfully!");
       } else {
-        await axios.post("http://localhost:8080/user/save-update", user);
+        await axios.post("${API_BASE_URL}/user/save-update", user);
         setSnackbarMessage("User added successfully!");
       }
       fetchUsers();
@@ -86,7 +86,7 @@ const UsersList = () => {
   const handleDeleteUser = async () => {
     try {
       await axios.delete(
-        `http://localhost:8080/user/delete/${selectedUser.id}`
+        `${API_BASE_URL}/user/delete/${selectedUser.id}`
       );
       fetchUsers();
       setSnackbarMessage("User deleted successfully!");

@@ -15,6 +15,8 @@ import PasswordChecklist from "react-password-checklist";
 import BackButton from "./BackButton";
 import backgroundImage from '../images/changePassword.png';
 
+const API_BASE_URL = process.env.REACT_APP_API_BASE_URL;
+
 const ChangePassword = () => {
   const [oldPassword, setOldPassword] = useState("");
   const [newPassword, setNewPassword] = useState("");
@@ -53,7 +55,7 @@ const ChangePassword = () => {
 
     try {
       const response = await axios.post(
-        "http://localhost:8080/user/change-password",
+        "${API_BASE_URL}/user/change-password",
         {
           email: email,
           oldPassword: oldPassword,
