@@ -31,7 +31,7 @@ import CreateCertificate from "./CreateCertificate";
 import { Link } from "react-router-dom";
 import HomeIcon from "@mui/icons-material/Home";
 import BackButton from "./BackButton";
-import backgroundImage from 'C:/Users/clara/Desktop/User_microservice_GUI_frontend/FrontEnd-Certificate/src/images/pageGeneral.png';
+import backgroundImage from '../src/images/pageGeneral.png';
 import RefreshIcon from '@mui/icons-material/Refresh'; 
 
 const CertificatePageUser = () => {

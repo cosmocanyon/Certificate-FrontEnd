@@ -33,7 +33,7 @@ import HomeIcon from "@mui/icons-material/Home";
 import BackButton from "./BackButton";
 import pageBackground from "../images/pageGeneral.png";
 import PasswordChecklist from "react-password-checklist";
-import logo from "C:/Users/clara/Desktop/User_microservice_GUI_frontend/FrontEnd-Certificate/src/images/certy-timeter.png"
+import logo from "../src/images/certy-timeter.png"
 
 
 const UsersList = () => {

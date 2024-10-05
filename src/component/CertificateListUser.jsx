@@ -33,7 +33,7 @@ import DownloadIcon from "@mui/icons-material/Download";
 import RefreshIcon from "@mui/icons-material/Refresh";
 import CheckCircleIcon from "@mui/icons-material/CheckCircle";
 import CancelIcon from "@mui/icons-material/Cancel";
-import logo from "C:/Users/clara/Desktop/User_microservice_GUI_frontend/FrontEnd-Certificate/src/images/certy-timeter.png"
+import logo from "../src/images/certy-timeter.png"
 
 const CertificatesListUser = () => {
   const { id } = useParams();
