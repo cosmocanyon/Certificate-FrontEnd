@@ -1,9 +1,9 @@
 import { Typography, AppBar, Toolbar, Box, IconButton } from "@mui/material";
 
 import Logout from "./Logout"; 
-import backgroundImage from '../src/images/home.png'; 
+import backgroundImage from '../images/home.png'; 
 import UserDetailsMenu from "./UserDetailMenu";
-import logo from "../src/images/certy-timeter.png"
+import logo from "../images/certy-timeter.png"
 import AppListUser from "./AppListUser";
 const UserHome = () => {
   return (

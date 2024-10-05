@@ -15,9 +15,9 @@ import DeleteApp from "./DeleteApp";
 import { useState, useEffect } from "react";
 import axios from "axios";
 import BackButton from "./BackButton";
-import backgroundImage from '../src/images/pageGeneral.png'; 
+import backgroundImage from '../images/pageGeneral.png'; 
 import AppListAdmin from "./AppListAdmin";
-import logo from "../src/images/certy-timeter.png"
+import logo from "../images/certy-timeter.png"
 
 const AppPage = () => {
   const [openCreateDialog, setOpenCreateDialog] = useState(false);

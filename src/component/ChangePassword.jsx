@@ -13,7 +13,7 @@ import { Visibility, VisibilityOff } from "@mui/icons-material";
 import { useNavigate } from "react-router-dom";
 import PasswordChecklist from "react-password-checklist";
 import BackButton from "./BackButton";
-import backgroundImage from '../src/images/changePassword.png';
+import backgroundImage from '../images/changePassword.png';
 
 const ChangePassword = () => {
   const [oldPassword, setOldPassword] = useState("");
