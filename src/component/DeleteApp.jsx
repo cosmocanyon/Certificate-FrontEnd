@@ -14,7 +14,7 @@ import {
 } from "@mui/material";
 import axios from "axios";
 
-const API_BASE_URL = process.env.REACT_APP_API_BASE_URL;
+const API_BASE_URL = import.meta.env.VITE_API_BASE_URL;
 
 const DeleteApp = ({ open, onClose, apps, removeApp }) => {
   const [selectedApp, setSelectedApp] = useState(null);

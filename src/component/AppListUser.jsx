@@ -10,7 +10,7 @@ import logo from "../images/logo.png";
 import axios from "axios";
 import { useEffect, useState } from "react";
 
-const API_BASE_URL = process.env.REACT_APP_API_BASE_URL;
+const API_BASE_URL = import.meta.env.VITE_API_BASE_URL;
 
 const AppListUser = () => {
   const [apps, setApps] = useState([]);

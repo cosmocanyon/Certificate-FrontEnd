@@ -15,7 +15,7 @@ import PasswordChecklist from "react-password-checklist";
 import BackButton from "./BackButton";
 import backgroundImage from '../images/changePassword.png';
 
-const API_BASE_URL = process.env.REACT_APP_API_BASE_URL;
+const API_BASE_URL = import.meta.env.VITE_API_BASE_URL;
 
 const ChangePassword = () => {
   const [oldPassword, setOldPassword] = useState("");
