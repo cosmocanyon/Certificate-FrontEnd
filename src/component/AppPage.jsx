@@ -33,7 +33,7 @@ const AppPage = () => {
   const fetchApps = async () => {
     try {
       const response = await axios.get(
-        '${API_BASE_URL}/applications/findAll-name'
+        'http://k8s-appgroup-60553c07aa-906982441.us-east-1.elb.amazonaws.com/applications/findAll-name'
       );
       if (response.status !== 200) {
         throw new Error(`HTTP error! status: ${response.status}`);
@@ -68,7 +68,7 @@ const AppPage = () => {
   const handleRemoveApp = async (appName) => {
     try {
       await axios.delete(
-        `${API_BASE_URL}/applications/delete/${appName}`
+        `http://k8s-appgroup-60553c07aa-906982441.us-east-1.elb.amazonaws.com/applications/delete/${appName}`
       );
       await fetchApps();
       setSnackbarMessage("Application deleted successfully!");

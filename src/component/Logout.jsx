@@ -14,7 +14,7 @@ const LogoutButton = () => {
     if (token) {
       try {
         await axios.post(
-          '${API_BASE_URL}/auth/logout',
+          'http://k8s-appgroup-60553c07aa-906982441.us-east-1.elb.amazonaws.com/auth/logout',
           {},
           {
             headers: {

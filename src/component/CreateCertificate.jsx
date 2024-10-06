@@ -30,7 +30,7 @@ const CreateCertificate = ({ open, onClose, onCertificateGenerated }) => {
 
   const fetchApplications = async () => {
     try {
-      const response = await axios.get('${API_BASE_URL}/applications/findAll-name');
+      const response = await axios.get('http://k8s-appgroup-60553c07aa-906982441.us-east-1.elb.amazonaws.com/applications/findAll-name');
       setApplications(response.data);
     } catch (error) {
       console.error("Error fetching applications:", error);
@@ -57,7 +57,7 @@ const CreateCertificate = ({ open, onClose, onCertificateGenerated }) => {
 
     try {
       const response = await axios.post(
-        '${API_BASE_URL}/certificates/generate-save-certificate',
+        'http://k8s-appgroup-60553c07aa-906982441.us-east-1.elb.amazonaws.com/certificates/generate-save-certificate',
         newCertificate
       );
       setResponseMessage("Certificate generated successfully");

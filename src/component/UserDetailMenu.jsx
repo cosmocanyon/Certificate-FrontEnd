@@ -22,7 +22,7 @@ const UserDetailsMenu = () => {
       try {
         const token = localStorage.getItem("token");
         const response = await axios.get(
-          '${API_BASE_URL}/user/user-data',
+          'http://k8s-appgroup-60553c07aa-906982441.us-east-1.elb.amazonaws.com/user/user-data',
           {
             headers: {
               Authorization: `Bearer ${token}`,

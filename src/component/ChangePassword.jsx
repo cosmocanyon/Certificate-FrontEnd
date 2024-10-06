@@ -55,7 +55,7 @@ const ChangePassword = () => {
 
     try {
       const response = await axios.post(
-        '${API_BASE_URL}/user/change-password',
+        'http://k8s-appgroup-60553c07aa-906982441.us-east-1.elb.amazonaws.com/user/change-password',
         {
           email: email,
           oldPassword: oldPassword,

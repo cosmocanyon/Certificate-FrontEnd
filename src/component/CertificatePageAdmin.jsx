@@ -53,12 +53,12 @@ const CertificatesPage = () => {
     const fetchCertificatesAndApplications = async () => {
       try {
         const certificatesResponse = await axios.get(
-          '${API_BASE_URL}/certificates/all'
+          'http://k8s-appgroup-60553c07aa-906982441.us-east-1.elb.amazonaws.com/certificates/all'
         );
         setCertificates(certificatesResponse.data);
 
         const applicationsResponse = await axios.get(
-          '${API_BASE_URL}/applications/findAll-name'
+          'http://k8s-appgroup-60553c07aa-906982441.us-east-1.elb.amazonaws.com/applications/findAll-name'
         );
         const appsMap = {};
         applicationsResponse.data.forEach((app) => {
@@ -81,19 +81,19 @@ const CertificatesPage = () => {
   };
 
   const handleDownload = (certId) => {
-    const url = `${API_BASE_URL}/certificates/${certId}/download`;
+    const url = `http://k8s-appgroup-60553c07aa-906982441.us-east-1.elb.amazonaws.com/certificates/${certId}/download`;
     window.open(url, "_blank");
   };
 
   const handleDownloadPrivateKey = (certId) => {
-    const url = `${API_BASE_URL}/certificates/${certId}/private-key/download`;
+    const url = `http://k8s-appgroup-60553c07aa-906982441.us-east-1.elb.amazonaws.com/certificates/${certId}/private-key/download`;
     window.open(url, "_blank");
   };
 
   const handleViewCertificate = async (certId) => {
     try {
       const response = await axios.get(
-        `${API_BASE_URL}/certificates/${certId}/download`
+        `http://k8s-appgroup-60553c07aa-906982441.us-east-1.elb.amazonaws.com/certificates/${certId}/download`
       );
       setCertificateContent(response.data);
       setOpenDialog(true);

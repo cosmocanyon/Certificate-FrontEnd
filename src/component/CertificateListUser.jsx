@@ -50,7 +50,7 @@ const CertificatesListUser = () => {
   const fetchCertificates = async (id) => {
     try {
       const response = await axios.get(
-        `${API_BASE_URL}/applications/id/${id}/certificates`
+        `http://k8s-appgroup-60553c07aa-906982441.us-east-1.elb.amazonaws.com/applications/id/${id}/certificates`
       );
       if (response.status !== 200) {
         throw new Error(`HTTP error! status: ${response.status}`);
@@ -92,12 +92,12 @@ const CertificatesListUser = () => {
   }, [id]);
 
   const handleDownloadCertificate = (certId) => {
-    const url = `${API_BASE_URL}/certificates/${certId}/download`;
+    const url = `http://k8s-appgroup-60553c07aa-906982441.us-east-1.elb.amazonaws.com/certificates/${certId}/download`;
     window.open(url, "_blank");
   };
 
   const handleDownloadPrivateKey = (certId) => {
-    const url = `${API_BASE_URL}/certificates/${certId}/private-key/download`;
+    const url = `http://k8s-appgroup-60553c07aa-906982441.us-east-1.elb.amazonaws.com/certificates/${certId}/private-key/download`;
     window.open(url, "_blank");
   };
 
@@ -112,7 +112,7 @@ const CertificatesListUser = () => {
 
   const handleRenewCertificate = async () => {
     try {
-      const response = await axios.post(`${API_BASE_URL}/certificates/${selectedCertificate.id}/renew`, { days: daysToAdd });
+      const response = await axios.post(`http://k8s-appgroup-60553c07aa-906982441.us-east-1.elb.amazonaws.com/certificates/${selectedCertificate.id}/renew`, { days: daysToAdd });
       setSnackbarMessage(response.data.message || "Certificate renewed successfully!");
       setSnackbarOpen(true);
     } catch (error) {

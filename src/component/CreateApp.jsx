@@ -19,7 +19,7 @@ const CreateApp = ({ open, onClose, addApp }) => {
     e.preventDefault();
     try {
       const response = await axios.post(
-        '${API_BASE_URL}/applications/create',
+        'http://k8s-appgroup-60553c07aa-906982441.us-east-1.elb.amazonaws.com/applications/create',
         { name: appName }
       );
       addApp(response.data);

@@ -19,7 +19,7 @@ const Login = () => {
       const requestBody = { email, password };
 
       const response = await axios.post(
-        '${API_BASE_URL}/auth/login-token',
+        'http://k8s-appgroup-60553c07aa-906982441.us-east-1.elb.amazonaws.com/auth/login-token',
         requestBody
       );
 

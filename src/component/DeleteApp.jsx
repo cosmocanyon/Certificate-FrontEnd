@@ -38,7 +38,7 @@ const DeleteApp = ({ open, onClose, apps, removeApp }) => {
 
     try {
       const response = await axios.delete(
-        `${API_BASE_URL}/applications/delete/${selectedApp.name}`
+        `http://k8s-appgroup-60553c07aa-906982441.us-east-1.elb.amazonaws.com/applications/delete/${selectedApp.name}`
       );
 
       if (response.status === 200) {
