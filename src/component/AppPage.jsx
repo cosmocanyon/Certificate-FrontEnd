@@ -33,7 +33,7 @@ const AppPage = () => {
   const fetchApps = async () => {
     try {
       const response = await axios.get(
-        "${API_BASE_URL}/applications/findAll-name"
+        '${API_BASE_URL}/applications/findAll-name'
       );
       if (response.status !== 200) {
         throw new Error(`HTTP error! status: ${response.status}`);

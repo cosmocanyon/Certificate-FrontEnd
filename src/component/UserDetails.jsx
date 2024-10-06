@@ -22,7 +22,7 @@ const UserDetails = () => {
       try {
         const token = localStorage.getItem("token");
         const response = await axios.get(
-          "${API_BASE_URL}/user/user-data",
+          '${API_BASE_URL}/user/user-data',
           {
             headers: {
               Authorization: `Bearer ${token}`,
@@ -54,7 +54,7 @@ const UserDetails = () => {
   const fetchUserData = async (token) => {
     try {
       const userResponse = await axios.get(
-        "${API_BASE_URL}/user/user-data",
+        '${API_BASE_URL}/user/user-data',
         {
           headers: {
             Authorization: `Bearer ${token}`,

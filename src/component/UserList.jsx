@@ -49,7 +49,7 @@ const UsersList = () => {
 
   const fetchUsers = async () => {
     try {
-      const response = await axios.get("${API_BASE_URL}/user/find-All");
+      const response = await axios.get('${API_BASE_URL}/user/find-All');
       setUsers(response.data);
     } catch (error) {
       setError("Unable to fetch users.");
@@ -72,7 +72,7 @@ const UsersList = () => {
         await axios.put(`${API_BASE_URL}/user/edit/${user.id}`, user);
         setSnackbarMessage("User updated successfully!");
       } else {
-        await axios.post("${API_BASE_URL}/user/save-update", user);
+        await axios.post('${API_BASE_URL}/user/save-update', user);
         setSnackbarMessage("User added successfully!");
       }
       fetchUsers();

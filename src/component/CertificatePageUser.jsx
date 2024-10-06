@@ -52,12 +52,12 @@ const CertificatePageUser = () => {
     const fetchCertificatesAndApplications = async () => {
       try {
         const certificatesResponse = await axios.get(
-          "${API_BASE_URL}/certificates/all"
+          '${API_BASE_URL}/certificates/all'
         );
         setCertificates(certificatesResponse.data);
 
         const applicationsResponse = await axios.get(
-          "${API_BASE_URL}/applications/findAll-name"
+          '${API_BASE_URL}/applications/findAll-name'
         );
         const appsMap = {};
         applicationsResponse.data.forEach((app) => {

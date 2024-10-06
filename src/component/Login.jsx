@@ -19,7 +19,7 @@ const Login = () => {
       const requestBody = { email, password };
 
       const response = await axios.post(
-        "${API_BASE_URL}/auth/login-token",
+        '${API_BASE_URL}/auth/login-token',
         requestBody
       );
 

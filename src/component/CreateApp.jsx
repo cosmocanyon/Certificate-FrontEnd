@@ -19,7 +19,7 @@ const CreateApp = ({ open, onClose, addApp }) => {
     e.preventDefault();
     try {
       const response = await axios.post(
-        "${API_BASE_URL}/applications/create",
+        '${API_BASE_URL}/applications/create',
         { name: appName }
       );
       addApp(response.data);

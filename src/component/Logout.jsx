@@ -14,7 +14,7 @@ const LogoutButton = () => {
     if (token) {
       try {
         await axios.post(
-          "${API_BASE_URL}/auth/logout",
+          '${API_BASE_URL}/auth/logout',
           {},
           {
             headers: {
